@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		556B672824B8C9350027D4D5 /* HomeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B672724B8C9350027D4D5 /* HomeViewPresenter.swift */; };
 		55B7A77024B8454F003BE363 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7A76F24B8454F003BE363 /* DetailViewController.swift */; };
 		55B7A77224B845F3003BE363 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7A77124B845F3003BE363 /* ResultViewController.swift */; };
 		55FA873C24B09D2E00163055 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA873B24B09D2E00163055 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		556B672724B8C9350027D4D5 /* HomeViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewPresenter.swift; sourceTree = "<group>"; };
 		55B7A76F24B8454F003BE363 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		55B7A77124B845F3003BE363 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		55FA873824B09D2E00163055 /* SmokingTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmokingTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +46,7 @@
 		55B7A76C24B844CA003BE363 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				556B672724B8C9350027D4D5 /* HomeViewPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				55FA874024B09D2E00163055 /* HomeViewController.swift in Sources */,
 				55FA873C24B09D2E00163055 /* AppDelegate.swift in Sources */,
 				55FA873E24B09D2E00163055 /* SceneDelegate.swift in Sources */,
+				556B672824B8C9350027D4D5 /* HomeViewPresenter.swift in Sources */,
 				55B7A77024B8454F003BE363 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
