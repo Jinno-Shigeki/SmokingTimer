@@ -1,0 +1,22 @@
+//
+//  StaticData.swift
+//  SmokingTimer
+//
+//  Created by 神野成紀 on 2020/07/16.
+//  Copyright © 2020 神野成紀. All rights reserved.
+//
+
+import Foundation
+
+struct StaticData {
+    static let start = "開始"
+    static let stop = "やめる"
+    static let money = "円"
+    static let cancel = "キャンセル"
+    static let date = "日"
+    static let minute = "分"
+    static let hour = "時間"
+    static let second = "秒"
+    static let alert = "タイマーを停止しますか？"
+    static let stopTimer = "停止する"
+}
