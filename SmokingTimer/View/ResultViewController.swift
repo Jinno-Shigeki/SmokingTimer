@@ -7,24 +7,46 @@
 //
 
 import UIKit
+protocol ResultViewProtocol {
+    func reloadData()
+}
 
 class ResultViewController: UIViewController {
-
+    
+    @IBOutlet weak var resultList: UITableView!
+    var presenter: ResultViewPresenter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        resultList.delegate = self
+        resultList.dataSource = self
+        presenter = ResultViewPresenter(view: self)
+        presenter.getHistory()
+        resultList.register(UINib(nibName: "ResultCell", bundle: nil), forCellReuseIdentifier: "cell")
+    }
+}
+//MARK: - UITableViewDelegate
+extension ResultViewController: UITableViewDelegate {
+    
+}
+//MARK: - UITableViewDataSource
+extension ResultViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.historyData.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ResultCell
+        cell.startDay.text = presenter.historyData[indexPath.row].startDay
+        cell.finishDay.text = presenter.historyData[indexPath.row].finishDay
+        cell.recordTime.text = presenter.historyData[indexPath.row].timeRecord
+        cell.savedMoney.text = presenter.historyData[indexPath.row].savedMoney
+        return cell
     }
-    */
-
+}
+//MARK: - ResultViewProtocol
+extension ResultViewController: ResultViewProtocol{
+    func reloadData() {
+        resultList.reloadData()
+    }
 }

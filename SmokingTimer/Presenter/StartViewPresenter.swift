@@ -13,7 +13,7 @@ class StartViewPresenter {
     let db = Firestore.firestore()
     
     func sendStartData(user :String, boxPrice: String, numberOfDay: String) {
-        db.collection("Users").document(user).setData(["user": user, "boxPrice": boxPrice, "numberOfDay": numberOfDay]) { (err) in
+        db.collection("Users").document(user).setData(["user": user, "boxPrice": Int(boxPrice)!, "numberOfDay": Int(numberOfDay)!]) { (err) in
             if let err = err {
                 print(err)
             } else {
