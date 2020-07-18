@@ -11,6 +11,7 @@ import UIKit
 class StartViewController: UIViewController {
     @IBOutlet weak var boxPrice: UITextField!
     @IBOutlet weak var numberOfDay: UITextField!
+    @IBOutlet weak var numberOfBox: UITextField!
     @IBOutlet weak var okButton: UIButton!
     
     let presenter = StartViewPresenter()
@@ -21,17 +22,19 @@ class StartViewController: UIViewController {
         UserId = presenter.createID()
         boxPrice.delegate = self
         numberOfDay.delegate = self
+        numberOfBox.delegate = self
         self.boxPrice.keyboardType = .numberPad
         self.numberOfDay.keyboardType = .numberPad
+        self.numberOfBox.keyboardType = .numberPad
         createReturnKey()
         okButton.isEnabled = false
         okButton.backgroundColor = .lightGray
     }
     
     @IBAction func tapOkButton(_ sender: UIButton) {
-        if boxPrice.text != "" && numberOfDay.text != "" {
+        if boxPrice.text != "" && numberOfDay.text != "" && numberOfBox.text != "" {
             UserDefaults.standard.set(UserId, forKey: "user")
-            presenter.sendStartData(user: UserId, boxPrice: boxPrice.text!, numberOfDay: numberOfDay.text!)
+            presenter.sendStartData(user: UserId, boxPrice: boxPrice.text!, numberOfDay: numberOfDay.text!, numberOfBox: numberOfBox.text!)
             performSegue(withIdentifier: "next", sender: sender)
         }
     }
@@ -39,7 +42,7 @@ class StartViewController: UIViewController {
 //MARK: - UITextFieldDelegate
 extension StartViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if boxPrice.text != "" && numberOfDay.text != "" {
+        if boxPrice.text != "" && numberOfDay.text != "" && numberOfBox.text != "" {
             okButton.isEnabled = true
             okButton.backgroundColor = UIColor(named: "customGreen")
         }
@@ -53,10 +56,12 @@ extension StartViewController: UITextFieldDelegate {
         toolBar.items = [space, returnKey]
         boxPrice.inputAccessoryView = toolBar
         numberOfDay.inputAccessoryView = toolBar
+        numberOfBox.inputAccessoryView = toolBar
     }
     @objc func tapReturnKey() {
         boxPrice.endEditing(true)
         numberOfDay.endEditing(true)
+        numberOfBox.endEditing(true)
     }
 }
 

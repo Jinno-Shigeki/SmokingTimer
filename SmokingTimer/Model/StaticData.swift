@@ -12,6 +12,7 @@ struct StaticData {
     static let start = "開始"
     static let stop = "やめる"
     static let money = "円"
+    static let number = "本"
     static let cancel = "キャンセル"
     static let date = "日"
     static let minute = "分"
@@ -19,4 +20,7 @@ struct StaticData {
     static let second = "秒"
     static let alert = "タイマーを停止しますか？"
     static let stopTimer = "停止する"
+    static let defaultTime = "0日 0時間 0分 00秒"
+    static let defaultMoney = "0.00円"
+    static let defaultNumber = "0本"
 }

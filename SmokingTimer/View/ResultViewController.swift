@@ -21,8 +21,10 @@ class ResultViewController: UIViewController {
         resultList.delegate = self
         resultList.dataSource = self
         presenter = ResultViewPresenter(view: self)
-        presenter.getHistory()
         resultList.register(UINib(nibName: "ResultCell", bundle: nil), forCellReuseIdentifier: "cell")
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.getHistory()
     }
 }
 //MARK: - UITableViewDelegate
@@ -41,6 +43,7 @@ extension ResultViewController: UITableViewDataSource {
         cell.finishDay.text = presenter.historyData[indexPath.row].finishDay
         cell.recordTime.text = presenter.historyData[indexPath.row].timeRecord
         cell.savedMoney.text = presenter.historyData[indexPath.row].savedMoney
+        cell.savedNumber.text = presenter.historyData[indexPath.row].savedNumber
         return cell
     }
 }

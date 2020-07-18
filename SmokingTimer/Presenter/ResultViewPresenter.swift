@@ -25,7 +25,6 @@ class ResultViewPresenter {
                 query.documents.forEach { (doc) in
                     self.historyData.append(HistoryData(document: doc))
                 }
-                print(self.historyData[0].savedMoney)
             } else if let err = err {
                 print(err)
             }

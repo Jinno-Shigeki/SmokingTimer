@@ -11,44 +11,45 @@ import Firebase
 
 class HomeViewPresenter {
     private let db = Firestore.firestore()
-    private var hour = 0
-    private var minute = 0
-    private var second = 0
-    private var date = 0
-    private var savedMoney: Double = 0
+    private var savedMoney = ""
+    private var savedNumber = ""
     private var view: HomeViewProtocol?
     private var timer = Timer()
-    let user = UserDefaults.standard.string(forKey: "user")
-    var secondPerMoney: Double = 0
-    var boxPrice = 0
-    var numberOfDay = 0
-    
+    private let user = UserDefaults.standard.string(forKey: "user")
+    private var boxPrice = UserDefaults.standard.integer(forKey: "boxPrice")
+    private var numberOfDay = UserDefaults.standard.integer(forKey: "numberOfDay")
+    private var numberOfBox = UserDefaults.standard.integer(forKey: "numberOfBox")
+    private var finishDay = ""
+    private var totalSecond = 0
     init(view: HomeViewProtocol) {
         self.view = view
     }
     
-    func getCurrentTime() -> String{
+    func getCurrentTime(start: Bool) {
         let date = Date()
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ja_JP")
         formatter.dateStyle = .full
         formatter.timeStyle = .medium
         formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
-        return formatter.string(from: date)
+        let dateString = formatter.string(from: date)
+        if start == true {
+            saveStartDate(date: date, startTime: dateString)
+        } else {
+            finishDay = dateString
+        }
     }
     
-    func startTimer(startTime: String){
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        UserDefaults.standard.set(startTime, forKey: "startTime")
-        print(second, minute, hour, date)
+    func startTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(dateCalculation), userInfo: nil, repeats: true)
     }
     
     func stopTimer(){
-        let finishDay = getCurrentTime()
         timer.invalidate()
+        UserDefaults.standard.removeObject(forKey: "Date")
         let startDay = UserDefaults.standard.string(forKey: "startTime")
         let stopTime = view?.getStopTime()
-        db.collection("Users").document(user!).collection("History").addDocument(data: ["time": stopTime!, "savedMoney": "\(String(format: "%.2f", savedMoney))\(StaticData.money)", "finishDay": finishDay, "startDay": startDay!]) { (err) in
+        db.collection("Users").document(user!).collection("History").addDocument(data: ["time": stopTime!, "savedMoney": "\(savedMoney)\(StaticData.money)", "savedNumber": savedNumber, "finishDay": finishDay, "startDay": startDay!]) { (err) in
             if let err = err {
                 print(err)
             } else {
@@ -57,38 +58,40 @@ class HomeViewPresenter {
         }
     }
     
-    @objc func updateTimer(){
-        second += 1
-        savedMoney += secondPerMoney
-        if second > 59 {
-            minute += 1
-            second = 0
-        }
-        if minute > 59 {
-            hour += 1
-            minute = 0
-        }
-        if hour > 23 {
-            date += 1
-            hour = 0
-        }
-        view?.upDateTimer(timer: "\(date)\(StaticData.date) \(hour)\(StaticData.hour) \(minute)\(StaticData.minute) \(second)\(StaticData.second)", money: savedMoney)
+    @objc func dateCalculation() {
+        let startDate = UserDefaults.standard.object(forKey: "Date") as! Date
+        let now = Date()
+        let dateComponents = Calendar.current.dateComponents([.day, .hour, .minute, .second], from: startDate, to: now)
+        savedMoney = calculateSavedMoney(dateComponents: dateComponents)
+        savedNumber = calculateSavedNumber()
+        view!.upDateTimer(timer: "\(dateComponents.day!)\(StaticData.date) \( dateComponents.hour!)\(StaticData.hour) \( dateComponents.minute!)\(StaticData.minute) \(dateComponents.second!)\(StaticData.second)", money: "\(savedMoney)\(StaticData.money)", number: "\(savedNumber)\(StaticData.number)")
     }
     
-    func getTobaccoData() {
-        db.collection("Users").document(user!).getDocument { (doc, err) in
-            if let doc = doc {
-                self.boxPrice = doc.get("boxPrice") as! Int
-                self.numberOfDay = doc.get("numberOfDay") as! Int
-            } else if let err = err {
-                print(err)
-            }
-        }
+    func calculateSavedMoney(dateComponents: DateComponents) -> String {
+        let unitPrice = boxPrice / numberOfBox
+        let secondPerMoney = Double(unitPrice * numberOfDay) / 86400
+        let secondOfDays = dateComponents.day! * 86400
+        let secondOfHours = dateComponents.hour! * 360
+        let secondOfMinutes = dateComponents.minute! * 60
+        totalSecond = secondOfDays + secondOfHours + secondOfMinutes + dateComponents.second!
+        let currentMooney = Double(totalSecond) * secondPerMoney
+        savedMoney = String(format: "%.2f", currentMooney)
+        return savedMoney
     }
     
-    func moneyCalculation() {
-        let unitPrice = boxPrice / 20
-        print(unitPrice)
-        secondPerMoney = Double(unitPrice * numberOfDay) / 86400
+    func calculateSavedNumber() -> String {
+        let secondPerNumber = 86400 / Double(numberOfDay)
+        let currentNumber = Double(totalSecond) / secondPerNumber
+        let savedNumber = String(Int(currentNumber))
+        return savedNumber
+    }
+    
+    func saveStartDate(date: Date, startTime: String) {
+        if UserDefaults.standard.object(forKey: "Date") != nil {
+            UserDefaults.standard.removeObject(forKey: "Date")
+            UserDefaults.standard.removeObject(forKey: "startTime")
+        }
+            UserDefaults.standard.set(date, forKey: "Date")
+            UserDefaults.standard.set(startTime, forKey: "startTime")
     }
 }

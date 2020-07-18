@@ -14,6 +14,7 @@ class ResultCell: UITableViewCell {
     @IBOutlet weak var finishDay: UILabel!
     @IBOutlet weak var recordTime: UILabel!
     @IBOutlet weak var savedMoney: UILabel!
+    @IBOutlet weak var savedNumber: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
