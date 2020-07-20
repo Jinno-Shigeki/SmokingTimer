@@ -1,16 +1,17 @@
 //
-//  LevelListCell.swift
+//  HomeViewCell.swift
 //  SmokingTimer
 //
-//  Created by 神野成紀 on 2020/07/19.
+//  Created by 神野成紀 on 2020/07/20.
 //  Copyright © 2020 神野成紀. All rights reserved.
 //
 
 import UIKit
-import ExpandableCell
-class LevelListCell: UITableViewCell {
 
-    @IBOutlet weak var levelCondition: UILabel!
+class HomeViewCell: UITableViewCell {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var contentLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

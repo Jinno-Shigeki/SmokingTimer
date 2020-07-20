@@ -20,6 +20,7 @@ class ResultViewPresenter {
     }
     
     func getHistory() {
+        refresh()
         db.collection("Users").document(user!).collection("History").getDocuments { (query, err) in
             if let query = query {
                 query.documents.forEach { (doc) in
@@ -30,6 +31,10 @@ class ResultViewPresenter {
             }
             self.view.reloadData()
         }
+    }
+    
+    func refresh() {
+        historyData.removeAll()
     }
 }
 
