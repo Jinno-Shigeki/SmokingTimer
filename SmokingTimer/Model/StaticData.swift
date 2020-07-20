@@ -23,4 +23,5 @@ struct StaticData {
     static let defaultTime = "0日 0時間 0分 00秒"
     static let defaultMoney = "0.00円"
     static let defaultNumber = "0本"
+    static let levels = ["Level.1", "Level.2", "Level.3", "Level.4", "Level.5", "Level.6", "Level.7"]
 }

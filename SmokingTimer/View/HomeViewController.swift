@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import MBCircularProgressBar
+
 protocol HomeViewProtocol {
     func upDateTimer(timer: String, money: String, number: String)
     func getStopTime() -> String
+    func upDateLevels(level: String, progressValue: CGFloat)
 }
 
 final class HomeViewController: UIViewController {
@@ -20,6 +23,8 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak private var helpButton: UIButton!
     @IBOutlet weak private var numberLabel: UILabel!
     @IBOutlet weak var startDateLebel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    @IBOutlet weak var progressBarView: MBCircularProgressBarView!
     
     
     var presenter: HomeViewPresenter!
@@ -59,6 +64,11 @@ final class HomeViewController: UIViewController {
 }
 //MARK: - HomeViewProtocol
 extension HomeViewController: HomeViewProtocol {
+    func upDateLevels(level: String, progressValue: CGFloat) {
+        levelLabel.text = level
+        progressBarView.value = progressValue
+    }
+    
     func upDateTimer(timer: String, money: String, number: String) {
         timerLabel.text = timer
         moneyLabel.text = money

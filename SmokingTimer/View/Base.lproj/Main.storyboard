@@ -59,205 +59,185 @@
                                 <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hM1-IK-Un5">
-                                <rect key="frame" x="0.0" y="164" width="414" height="649"/>
+                            <button opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVA-nO-1Fg">
+                                <rect key="frame" x="294" y="494" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.012865800950000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="開始">
+                                    <color key="titleColor" name="customGreen"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tapStartButton:" destination="mVU-v5-w3d" eventType="touchUpInside" id="Tee-bh-aZq"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WJQ-cs-WIX">
+                                <rect key="frame" x="0.0" y="602" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdg-Fa-kQ7">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="211"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0日 0時間 0分 0秒" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gft-DQ-OHP">
-                                                <rect key="frame" x="52.5" y="83" width="309.5" height="45.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                                <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="Gft-DQ-OHP" firstAttribute="centerX" secondItem="wdg-Fa-kQ7" secondAttribute="centerX" id="0Wv-WA-9aQ"/>
-                                            <constraint firstItem="Gft-DQ-OHP" firstAttribute="centerY" secondItem="wdg-Fa-kQ7" secondAttribute="centerY" id="GAJ-bk-jim"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVw-HW-5GJ">
-                                        <rect key="frame" x="0.0" y="219" width="414" height="211"/>
-                                        <subviews>
-                                            <button opaque="NO" alpha="0.55000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVA-nO-1Fg">
-                                                <rect key="frame" x="264" y="61" width="120" height="120"/>
-                                                <color key="backgroundColor" red="0.012865800950000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="pVA-nO-1Fg" secondAttribute="height" multiplier="1:1" id="cgS-x5-hxQ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                <state key="normal" title="開始">
-                                                    <color key="titleColor" name="customGreen"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="25"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="tapStartButton:" destination="mVU-v5-w3d" eventType="touchUpInside" id="Tee-bh-aZq"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkP-Tj-v0V">
-                                                <rect key="frame" x="30" y="61" width="120" height="120"/>
-                                                <color key="backgroundColor" red="0.012865800950000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="rkP-Tj-v0V" secondAttribute="height" multiplier="1:1" id="ruf-dq-5u9"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                <state key="normal" title="辛い時...">
-                                                    <color key="titleColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="25"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <segue destination="bSb-p4-eek" kind="show" id="MPP-9w-r2a"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="rkP-Tj-v0V" secondAttribute="bottom" constant="30" id="133-WM-sV1"/>
-                                            <constraint firstItem="rkP-Tj-v0V" firstAttribute="top" secondItem="IVw-HW-5GJ" secondAttribute="top" constant="61" id="4jj-N7-A7V"/>
-                                            <constraint firstAttribute="bottom" secondItem="pVA-nO-1Fg" secondAttribute="bottom" constant="30" id="OBb-eB-Mv2"/>
-                                            <constraint firstAttribute="trailing" secondItem="pVA-nO-1Fg" secondAttribute="trailing" constant="30" id="OoR-Xi-XAS"/>
-                                            <constraint firstItem="rkP-Tj-v0V" firstAttribute="leading" secondItem="IVw-HW-5GJ" secondAttribute="leading" constant="30" id="boz-1e-mSZ"/>
-                                            <constraint firstItem="pVA-nO-1Fg" firstAttribute="top" secondItem="IVw-HW-5GJ" secondAttribute="top" constant="61" id="w2I-Bt-bec"/>
-                                        </constraints>
-                                    </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Eee-J7-RFK">
-                                        <rect key="frame" x="0.0" y="438" width="414" height="211"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJQ-cs-WIX">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開始日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1y4-iW-V6b">
-                                                        <rect key="frame" x="20" y="10" width="76" height="33"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020/12/27" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWA-LT-YWA">
-                                                        <rect key="frame" x="262.5" y="10" width="131.5" height="33"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="HWA-LT-YWA" firstAttribute="top" secondItem="WJQ-cs-WIX" secondAttribute="top" constant="10" id="7dA-2D-8dP"/>
-                                                    <constraint firstAttribute="bottom" secondItem="1y4-iW-V6b" secondAttribute="bottom" constant="10" id="BFP-Mn-QRu"/>
-                                                    <constraint firstItem="1y4-iW-V6b" firstAttribute="top" secondItem="WJQ-cs-WIX" secondAttribute="top" constant="10" id="EPf-B1-8RM"/>
-                                                    <constraint firstAttribute="bottom" secondItem="HWA-LT-YWA" secondAttribute="bottom" constant="10" id="c9d-ij-F1Y"/>
-                                                    <constraint firstAttribute="trailing" secondItem="HWA-LT-YWA" secondAttribute="trailing" constant="20" id="lNW-Fe-8rp"/>
-                                                    <constraint firstItem="1y4-iW-V6b" firstAttribute="leading" secondItem="WJQ-cs-WIX" secondAttribute="leading" constant="20" id="zaM-sv-hvJ"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozm-Ra-7ip">
-                                                <rect key="frame" x="0.0" y="53" width="414" height="52.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00円" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OK-g3-6fV">
-                                                        <rect key="frame" x="315.5" y="10" width="78.5" height="32.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="節約できた金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svj-Em-bw3">
-                                                        <rect key="frame" x="20" y="10" width="177.5" height="32.5"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="Svj-Em-bw3" firstAttribute="top" secondItem="ozm-Ra-7ip" secondAttribute="top" constant="10" id="2nv-kN-LI9"/>
-                                                    <constraint firstItem="1OK-g3-6fV" firstAttribute="top" secondItem="ozm-Ra-7ip" secondAttribute="top" constant="10" id="TVp-Di-dMI"/>
-                                                    <constraint firstItem="Svj-Em-bw3" firstAttribute="leading" secondItem="ozm-Ra-7ip" secondAttribute="leading" constant="20" id="X0L-Gu-tQp"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Svj-Em-bw3" secondAttribute="bottom" constant="10" id="eO0-9Z-Ek1"/>
-                                                    <constraint firstAttribute="bottom" secondItem="1OK-g3-6fV" secondAttribute="bottom" constant="10" id="rda-0C-a1p"/>
-                                                    <constraint firstAttribute="trailing" secondItem="1OK-g3-6fV" secondAttribute="trailing" constant="20" id="ymO-Qc-bcv"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmq-Xg-Z4l">
-                                                <rect key="frame" x="0.0" y="105.5" width="414" height="53"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="節約できた本数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2e-kp-qx0">
-                                                        <rect key="frame" x="20" y="10" width="177.5" height="33"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                        <color key="textColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0本" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVq-Xd-xh5">
-                                                        <rect key="frame" x="353" y="13" width="41" height="30"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <color key="textColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="B2e-kp-qx0" firstAttribute="top" secondItem="fmq-Xg-Z4l" secondAttribute="top" constant="10" id="0Xr-eM-010"/>
-                                                    <constraint firstAttribute="bottom" secondItem="B2e-kp-qx0" secondAttribute="bottom" constant="10" id="F7d-4I-VvR"/>
-                                                    <constraint firstItem="oVq-Xd-xh5" firstAttribute="top" secondItem="fmq-Xg-Z4l" secondAttribute="top" constant="13" id="Rfv-bM-l8d"/>
-                                                    <constraint firstAttribute="trailing" secondItem="oVq-Xd-xh5" secondAttribute="trailing" constant="20" id="U3F-oD-K2j"/>
-                                                    <constraint firstItem="B2e-kp-qx0" firstAttribute="leading" secondItem="fmq-Xg-Z4l" secondAttribute="leading" constant="20" id="jKi-6u-1z4"/>
-                                                    <constraint firstAttribute="bottom" secondItem="oVq-Xd-xh5" secondAttribute="bottom" constant="10" id="r7c-cV-1Q5"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mRu-IJ-v4O">
-                                                <rect key="frame" x="0.0" y="158.5" width="414" height="52.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在のレベル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7Y-L0-Xhb">
-                                                        <rect key="frame" x="20" y="10" width="152" height="32.5"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOT-Gn-iRw">
-                                                        <rect key="frame" x="320" y="10" width="74" height="32.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="x7Y-L0-Xhb" firstAttribute="top" secondItem="mRu-IJ-v4O" secondAttribute="top" constant="10" id="53Q-hq-gbc"/>
-                                                    <constraint firstItem="YOT-Gn-iRw" firstAttribute="top" secondItem="mRu-IJ-v4O" secondAttribute="top" constant="10" id="8qe-eo-Kl3"/>
-                                                    <constraint firstItem="x7Y-L0-Xhb" firstAttribute="leading" secondItem="mRu-IJ-v4O" secondAttribute="leading" constant="20" id="KNJ-pl-1mG"/>
-                                                    <constraint firstAttribute="bottom" secondItem="x7Y-L0-Xhb" secondAttribute="bottom" constant="10" id="oQ3-6b-WgY"/>
-                                                    <constraint firstAttribute="bottom" secondItem="YOT-Gn-iRw" secondAttribute="bottom" constant="10" id="r8H-Ds-7iY"/>
-                                                    <constraint firstAttribute="trailing" secondItem="YOT-Gn-iRw" secondAttribute="trailing" constant="20" id="zoJ-We-YO1"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="開始日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1y4-iW-V6b">
+                                        <rect key="frame" x="20" y="10" width="76" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2020/12/27" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWA-LT-YWA">
+                                        <rect key="frame" x="262.5" y="10" width="131.5" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                            </stackView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ozm-Ra-7ip">
+                                <rect key="frame" x="0.0" y="655" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.00円" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OK-g3-6fV">
+                                        <rect key="frame" x="315.5" y="10" width="78.5" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="節約できた金額" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svj-Em-bw3">
+                                        <rect key="frame" x="20" y="10" width="177.5" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fmq-Xg-Z4l">
+                                <rect key="frame" x="0.0" y="708" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="節約できた本数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2e-kp-qx0">
+                                        <rect key="frame" x="20" y="10" width="177.5" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0本" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVq-Xd-xh5">
+                                        <rect key="frame" x="353" y="13" width="41" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mRu-IJ-v4O">
+                                <rect key="frame" x="0.0" y="761" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="現在のレベル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7Y-L0-Xhb">
+                                        <rect key="frame" x="20" y="10" width="152" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Level 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOT-Gn-iRw">
+                                        <rect key="frame" x="320" y="10" width="74" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkP-Tj-v0V">
+                                <rect key="frame" x="20" y="494" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.012865800950000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="辛い時...">
+                                    <color key="titleColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="bSb-p4-eek" kind="show" id="MPP-9w-r2a"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ilz-e7-CUk" customClass="MBCircularProgressBarView">
+                                <rect key="frame" x="44" y="160" width="326" height="326"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gft-DQ-OHP">
+                                        <rect key="frame" x="13" y="111" width="300" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <string key="text">0日 
+0時間 0分 0秒</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                        <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showValueString" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                        <color key="value" red="0.012865800950000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="emptyLineWidth">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyLineColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="12.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressRotationAngle">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyLineStrokeColor">
+                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
+                                        <color key="value" red="0.012865800950000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="rfw-PJ-JUq" firstAttribute="leading" secondItem="kur-25-3a5" secondAttribute="leading" constant="20" id="04D-bk-fRh"/>
-                            <constraint firstItem="hM1-IK-Un5" firstAttribute="top" secondItem="rfw-PJ-JUq" secondAttribute="bottom" constant="20" id="2Ns-83-7dm"/>
-                            <constraint firstItem="hM1-IK-Un5" firstAttribute="leading" secondItem="kur-25-3a5" secondAttribute="leading" id="CA5-OU-Dxp"/>
                             <constraint firstItem="rfw-PJ-JUq" firstAttribute="top" secondItem="kur-25-3a5" secondAttribute="top" constant="20" id="Igp-83-eSe"/>
-                            <constraint firstItem="hM1-IK-Un5" firstAttribute="trailing" secondItem="kur-25-3a5" secondAttribute="trailing" id="RTR-l2-LU3"/>
-                            <constraint firstItem="hM1-IK-Un5" firstAttribute="bottom" secondItem="kur-25-3a5" secondAttribute="bottom" id="gzH-8E-GXc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kur-25-3a5"/>
                     </view>
                     <navigationItem key="navigationItem" id="w5a-x9-Ice"/>
                     <connections>
                         <outlet property="helpButton" destination="rkP-Tj-v0V" id="GYa-dV-tcI"/>
+                        <outlet property="levelLabel" destination="YOT-Gn-iRw" id="oTK-18-atQ"/>
                         <outlet property="moneyLabel" destination="1OK-g3-6fV" id="4Dc-jQ-3D8"/>
                         <outlet property="numberLabel" destination="oVq-Xd-xh5" id="Ica-bB-3Ca"/>
+                        <outlet property="progressBarView" destination="Ilz-e7-CUk" id="OCL-0c-pjT"/>
                         <outlet property="startButton" destination="pVA-nO-1Fg" id="1mm-cI-2e2"/>
                         <outlet property="startDateLebel" destination="HWA-LT-YWA" id="eil-Ky-Qqi"/>
                         <outlet property="timerLabel" destination="Gft-DQ-OHP" id="m2p-Bf-1EG"/>
@@ -405,10 +385,10 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kcI-Kh-y32">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" red="0.087712316590000006" green="0.27790110699999998" blue="0.16075398630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" red="0.087712316590000006" green="0.27790110699999998" blue="0.16075398630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" red="0.012865800950000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="d5j-KE-5wd" kind="relationship" relationship="viewControllers" id="3qu-hB-o0b"/>
@@ -561,13 +541,20 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d5j-KE-5wd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="home" image="house.fill" catalog="system" selectedImage="house.fill" id="XQb-oK-dLX">
-                        <color key="badgeColor" red="0.087712316590000006" green="0.27790110699999998" blue="0.16075398630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="badgeColor" red="0.012865800950000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="283-Jo-oa3">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.012865800950000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -582,7 +569,9 @@
         <scene sceneID="3QM-gz-iOd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jid-Tg-0ne" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="設定" image="gear" catalog="system" id="CCM-Cl-z9E"/>
+                    <tabBarItem key="tabBarItem" title="設定" image="gear" catalog="system" id="CCM-Cl-z9E">
+                        <color key="badgeColor" red="0.012865800950000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Bp-jf-3yd">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -602,7 +591,9 @@
         <scene sceneID="Efz-Xp-pgf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fUS-Xd-Egg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="履歴" image="list.bullet" catalog="system" selectedImage="list.bullet" id="TM4-fy-oza"/>
+                    <tabBarItem key="tabBarItem" title="履歴" image="list.bullet" catalog="system" selectedImage="list.bullet" id="TM4-fy-oza">
+                        <color key="badgeColor" red="0.012865800950000001" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8MD-vB-RNZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
