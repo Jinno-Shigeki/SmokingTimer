@@ -21,7 +21,7 @@ class ResultViewController: UIViewController {
         resultList.delegate = self
         resultList.dataSource = self
         presenter = ResultViewPresenter(view: self)
-        resultList.register(UINib(nibName: "ResultCell", bundle: nil), forCellReuseIdentifier: "cell")
+        resultList.register(UINib(nibName: "ResultCell", bundle: nil), forCellReuseIdentifier: "ResultCell")
     }
     override func viewWillAppear(_ animated: Bool) {
         presenter.getHistory()
@@ -38,7 +38,7 @@ extension ResultViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ResultCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! ResultCell
         cell.startDay.text = presenter.historyData[indexPath.row].startDay
         cell.finishDay.text = presenter.historyData[indexPath.row].finishDay
         cell.recordTime.text = presenter.historyData[indexPath.row].timeRecord

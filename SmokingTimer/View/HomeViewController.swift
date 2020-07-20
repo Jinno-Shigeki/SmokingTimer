@@ -11,6 +11,7 @@ protocol HomeViewProtocol {
     func upDateTimer(timer: String, money: String, number: String)
     func getStopTime() -> String
 }
+
 final class HomeViewController: UIViewController {
     
     @IBOutlet weak private var timerLabel: UILabel!
@@ -18,6 +19,9 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak private var startButton: UIButton!
     @IBOutlet weak private var helpButton: UIButton!
     @IBOutlet weak private var numberLabel: UILabel!
+    @IBOutlet weak var startDateLebel: UILabel!
+    
+    
     var presenter: HomeViewPresenter!
     
     override func viewDidLoad() {
@@ -30,6 +34,7 @@ final class HomeViewController: UIViewController {
             presenter.getCurrentTime(start: true)
             presenter.startTimer()
             startButton.setTitle(StaticData.stop, for: UIControl.State.normal)
+            startDateLebel.text = UserDefaults.standard.string(forKey: "startTime")
         } else {
             displayAlert()
         }
