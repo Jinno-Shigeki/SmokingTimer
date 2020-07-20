@@ -283,6 +283,7 @@ PODS:
     - gRPC-Core/Interface (= 1.28.2)
   - gRPC-Core/Interface (1.28.2)
   - leveldb-library (1.22)
+  - MBCircularProgressBar (0.3.5)
   - nanopb (1.30905.0):
     - nanopb/decode (= 1.30905.0)
     - nanopb/encode (= 1.30905.0)
@@ -293,6 +294,7 @@ PODS:
 DEPENDENCIES:
   - ExpandableCell
   - Firebase/Firestore
+  - MBCircularProgressBar
 
 SPEC REPOS:
   trunk:
@@ -311,6 +313,7 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - leveldb-library
+    - MBCircularProgressBar
     - nanopb
     - PromisesObjC
 
@@ -330,9 +333,10 @@ SPEC CHECKSUMS:
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
 
-PODFILE CHECKSUM: 71306eed4d0e1dd09f19a349af681a3a13bac6f4
+PODFILE CHECKSUM: b8c1857faf80ce209a385be054095ca940489128
 
 COCOAPODS: 1.9.1
