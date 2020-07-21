@@ -32,7 +32,7 @@ class HomeViewPresenter {
         let date = Date()
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ja_JP")
-        formatter.dateStyle = .full
+        formatter.dateStyle = .medium
         formatter.timeStyle = .medium
         formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         let dateString = formatter.string(from: date)
@@ -49,15 +49,15 @@ class HomeViewPresenter {
     
     func stopTimer(){
         timer.invalidate()
-        UserDefaults.standard.removeObject(forKey: "Date")
         let startDay = UserDefaults.standard.string(forKey: "startTime")
         let stopTime = view?.getStopTime()
-        db.collection("Users").document(user!).collection("History").addDocument(data: ["time": stopTime!, "savedMoney": "\(savedMoney)\(StaticData.money)", "savedNumber": savedNumber, "finishDay": finishDay, "startDay": startDay!]) { (err) in
+        db.collection("Users").document(user!).collection("History").addDocument(data: ["time": stopTime!, "savedMoney": "\(savedMoney)\(StaticData.money)", "savedNumber": "\(savedNumber)\(StaticData.number)", "finishDay": finishDay, "startDay": startDay!]) { (err) in
             if let err = err {
                 print(err)
             } else {
                 print("succeed!")
             }
+            UserDefaults.standard.removeObject(forKey: "Date")
         }
     }
     
@@ -69,8 +69,8 @@ class HomeViewPresenter {
         totalSecond = totalSecondComp.second!
         savedMoney = calculateSavedMoney()
         savedNumber = calculateSavedNumber()
-        view?.upDateTimer(timer: "\(dateComponents.day!)\(StaticData.date) \( dateComponents.hour!)\(StaticData.hour) \( dateComponents.minute!)\(StaticData.minute) \(dateComponents.second!)\(StaticData.second)", money: "\(savedMoney)\(StaticData.money)", number: "\(savedNumber)\(StaticData.number)")
-        view?.upDateLevels(level: getCurrentLevel(dateComponents: dateComponents), progressValue: CGFloat(calculateLevelProgress()))
+        view?.upDateTimer(timer: String(format: "\(dateComponents.day!)\(StaticData.date) %.2d: %.2d: %.2d", dateComponents.hour!, dateComponents.minute!, dateComponents.second!), money: "\(savedMoney)\(StaticData.money)", number: "\(savedNumber)\(StaticData.number)")
+        view?.upDateLevels(level: getCurrentLevel(dateComponents: dateComponents), next: calculateNextLebel(date: startDate), progressValue: CGFloat(calculateLevelProgress()))
     }
     
     func calculateSavedMoney() -> String {
@@ -108,11 +108,47 @@ class HomeViewPresenter {
         } else if totalSecond >= 172800 {
             return StaticData.levels[4]
         } else if totalSecond >= 259200 {
-           return StaticData.levels[5]
+            return StaticData.levels[5]
         } else if totalSecond >= 604800 {
             return StaticData.levels[6]
         } else if totalSecond >= 2592000 {
             return StaticData.levels[7]
+        }
+        return ""
+    }
+    
+    func calculateNextLebel(date: Date) -> String {
+        let nowDate = Date()
+        if totalSecond < 1200 {
+            let toDate = Calendar.current.date(byAdding: .minute, value: 20, to: date)
+            let timeValue = Calendar.current.dateComponents([.hour, .minute, .second],  from: nowDate, to: toDate!)
+            return String(format: "%.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
+        } else if totalSecond >= 1200 {
+            let toDate = Calendar.current.date(byAdding: .hour, value: 8, to: date)
+            let timeValue = Calendar.current.dateComponents([.hour, .minute, .second],  from: nowDate, to: toDate!)
+            return String(format: "%.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
+        } else if totalSecond >= 28800 {
+            let toDate = Calendar.current.date(byAdding: .hour, value: 24, to: date)
+            let timeValue = Calendar.current.dateComponents([.hour, .minute, .second],  from: date, to: toDate!)
+            return String(format: "%.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
+        } else if totalSecond >= 86400 {
+            let toDate = Calendar.current.date(byAdding: .day, value: 2, to: date)
+            let timeValue = Calendar.current.dateComponents([.day, .hour, .minute, .second],  from: nowDate, to: toDate!)
+            return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
+        } else if totalSecond >= 172800 {
+            let toDate = Calendar.current.date(byAdding: .day, value: 3, to: date)
+            let timeValue = Calendar.current.dateComponents([.day, .hour, .minute, .second],  from: nowDate, to: toDate!)
+            return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
+        } else if totalSecond >= 259200 {
+            let toDate = Calendar.current.date(byAdding: .day, value: 3, to: date)
+            let timeValue = Calendar.current.dateComponents([.day, .hour, .minute, .second],  from: nowDate, to: toDate!)
+            return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
+        } else if totalSecond >= 604800 {
+            let toDate = Calendar.current.date(byAdding: .day, value: 3, to: date)
+            let timeValue = Calendar.current.dateComponents([.day, .hour, .minute, .second],  from: nowDate, to: toDate!)
+            return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
+        } else if totalSecond >= 2592000 {
+            return ""
         }
         return ""
     }
@@ -146,6 +182,6 @@ class HomeViewPresenter {
         } else if totalSecond >= 604800 {
             return 100
         }
-            return 0
+        return 0
     }
 }

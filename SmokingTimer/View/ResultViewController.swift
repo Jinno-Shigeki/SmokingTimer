@@ -18,6 +18,7 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        layoutUI()
         resultList.delegate = self
         resultList.dataSource = self
         presenter = ResultViewPresenter(view: self)
@@ -25,6 +26,13 @@ class ResultViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         presenter.getHistory()
+    }
+    
+    func layoutUI() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        tabBarController?.tabBar.backgroundImage = UIImage()
+        tabBarController?.tabBar.shadowImage = UIImage()
     }
 }
 //MARK: - UITableViewDelegate
@@ -45,6 +53,10 @@ extension ResultViewController: UITableViewDataSource {
         cell.savedMoney.text = presenter.historyData[indexPath.row].savedMoney
         cell.savedNumber.text = presenter.historyData[indexPath.row].savedNumber
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return StaticData.history
     }
 }
 //MARK: - ResultViewProtocol
