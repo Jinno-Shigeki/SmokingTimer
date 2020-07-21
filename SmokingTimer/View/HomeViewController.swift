@@ -12,7 +12,7 @@ import MBCircularProgressBar
 protocol HomeViewProtocol {
     func upDateTimer(timer: String, money: String, number: String)
     func getStopTime() -> String
-    func upDateLevels(level: String, progressValue: CGFloat)
+    func upDateLevels(level: String, next: String, progressValue: CGFloat)
 }
 
 final class HomeViewController: UIViewController {
@@ -23,15 +23,23 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak private var helpButton: UIButton!
     @IBOutlet weak private var numberLabel: UILabel!
     @IBOutlet weak var startDateLebel: UILabel!
+    @IBOutlet weak var nextLevel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     @IBOutlet weak var progressBarView: MBCircularProgressBarView!
-    
     
     var presenter: HomeViewPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = HomeViewPresenter(view: self)
+        layoutUI()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        if UserDefaults.standard.object(forKey: "Date") != nil {
+            presenter.startTimer()
+            startButton.setTitle(StaticData.stop, for: UIControl.State.normal)
+            startDateLebel.text = UserDefaults.standard.string(forKey: "startTime")
+        }
     }
     
     @IBAction func tapStartButton(_ sender: UIButton) {
@@ -53,6 +61,10 @@ final class HomeViewController: UIViewController {
             self.timerLabel.text = StaticData.defaultTime
             self.moneyLabel.text = StaticData.defaultMoney
             self.numberLabel.text = StaticData.defaultNumber
+            self.nextLevel.text = StaticData.nextlevel
+            self.progressBarView.value = 0
+            self.levelLabel.text = "Level.0"
+            self.startDateLebel.text = ""
         }
         let cancelAction = UIAlertAction(title: StaticData.cancel, style: UIAlertAction.Style.cancel) { (action) in
             
@@ -61,11 +73,25 @@ final class HomeViewController: UIViewController {
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
     }
+    
+    func layoutUI() {
+        startButton.layer.cornerRadius = startButton.frame.height / 2
+        helpButton.layer.cornerRadius = startButton.frame.height / 2
+        startButton.layer.borderWidth = 3
+        startButton.layer.borderColor = UIColor(named: "customGreen")?.cgColor
+        helpButton.layer.borderWidth = 3
+        helpButton.layer.borderColor = UIColor(named: "customGreen")?.cgColor
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        tabBarController?.tabBar.backgroundImage = UIImage()
+        tabBarController?.tabBar.shadowImage = UIImage()
+    }
 }
 //MARK: - HomeViewProtocol
 extension HomeViewController: HomeViewProtocol {
-    func upDateLevels(level: String, progressValue: CGFloat) {
+    func upDateLevels(level: String, next: String, progressValue: CGFloat) {
         levelLabel.text = level
+        nextLevel.text = next
         progressBarView.value = progressValue
     }
     

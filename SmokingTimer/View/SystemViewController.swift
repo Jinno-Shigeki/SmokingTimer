@@ -7,67 +7,107 @@
 //
 
 import UIKit
-import ExpandableCell
 
 protocol DetailViewProtocol {
     
 }
 class SystemViewController: UIViewController {
-   
-    @IBOutlet weak var systemList: ExpandableTableView!
+    
+    @IBOutlet weak var systemList: UITableView!
     var presenter: LevelListViewPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = LevelListViewPresenter(view: self)
-        systemList.expandableDelegate = self
-        systemList.animation = .fade
-        systemList.register(UINib(nibName: "LevelListCell", bundle: nil), forCellReuseIdentifier: "LevelListCell")
+        systemList.delegate = self
+        systemList.dataSource = self
+        layoutUI()
+    }
+    
+    func layoutUI() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        tabBarController?.tabBar.backgroundImage = UIImage()
+        tabBarController?.tabBar.shadowImage = UIImage()
     }
 }
 //MARK: - ExpandableDelegate
-extension SystemViewController: ExpandableDelegate {
-    func expandableTableView(_ expandableTableView: ExpandableTableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.frame.height / 18
+extension SystemViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+//MARK: - Section Header
+extension SystemViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
-    func expandableTableView(_ expandableTableView: ExpandableTableView, numberOfRowsInSection section: Int) -> Int {
-        return SystemData.systemMenu[section].count - 1
-    }
-    
-    func expandableTableView(_ expandableTableView: ExpandableTableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ExpandableCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = SystemData.systemMenu[indexPath.section][indexPath.row + 1]
-        return cell
-    }
-    
-    func expandableTableView(_ expandableTableView: ExpandableTableView, expandedCellsForRowAt indexPath: IndexPath) -> [UITableViewCell]? {
-        if indexPath.section == 1 {
-            let cell = systemList.dequeueReusableCell(withIdentifier: "LevelListCell", for: indexPath) as! LevelListCell
-            cell.levelCondition.text = SystemData.levelConditions[indexPath.row]
-            return [cell]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SystemCell", for: indexPath)
+        if indexPath.section != 0 {
+            cell.textLabel?.text = presenter.section[indexPath.section - SystemData.systemMenu.count].levelContent
+            cell.textLabel?.numberOfLines = 20
+            return cell
+        } else {
+            cell.textLabel?.text = SystemData.systemMenu[0]
+            cell.textLabel?.font = UIFont.systemFont(ofSize: cell.frame.height / 2)
+            let imageView = UIImageView()
+            imageView.frame = CGRect(x: cell.frame.width - cell.contentView.frame.width / 10, y: cell.frame.height / 3, width: cell.frame.height / 4, height: cell.frame.height / 3)
+            imageView.image = UIImage(systemName: "chevron.right")
+            imageView.tintColor = .darkGray
+            cell.addSubview(imageView)
+            return cell
         }
-        return nil
     }
-    func expandableTableView(_ expandableTableView: ExpandableTableView, heightsForExpandedRowAt indexPath: IndexPath) -> [CGFloat]? {
-        if indexPath.section == 1 {
-            return [150]
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return presenter.section.count + SystemData.systemMenu.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return tableView.frame.height / 16
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section != 0 {
+            if (presenter.section[indexPath.section - 1].expanded) {
+                return tableView.frame.height / 5
+            } else {
+                return 0
+            }
+        } else {
+            return tableView.frame.height / 16
         }
-        return nil
     }
     
-    func numberOfSections(in expandableTableView: ExpandableTableView) -> Int {
-        return SystemData.systemMenu.count
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section != 0 {
+            let header = ExpandableHeaderView()
+            header.customInit(delegate: self, section: section, title: presenter.section[section - SystemData.systemMenu.count].level)
+            return header
+        } else {
+            return nil
+        }
     }
-    
-    func expandableTableView(_ expandableTableView: ExpandableTableView, titleForHeaderInSection section: Int) -> String? {
-        return SystemData.systemMenu[section][0]
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section != 0 {
+            return 1
+        } else {
+            return tableView.frame.height / 16
+        }
     }
-    func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    func expandableTableView(_ expandableTableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return true
+}
+//MARK: - ExpandableHeaderViewDelegate
+extension SystemViewController: ExpandableHeaderViewDelegate{
+    func toggleSection(header: ExpandableHeaderView, section: Int) {
+        if section != 0 {
+            presenter.section[section - SystemData.systemMenu.count].expanded = !presenter.section[section - SystemData.systemMenu.count].expanded
+            systemList.beginUpdates()
+            systemList.reloadRows(at: [IndexPath(row: 0, section: section)], with: .automatic)
+            systemList.endUpdates()
+        }
     }
 }
 //MARK: - DetailViewProtocol
