@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		551ABFED24C7699700CEBF1B /* ResettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551ABFEC24C7699700CEBF1B /* ResettingViewController.swift */; };
+		5533A72724C7D5B9008D4659 /* LevelListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533A72524C7D5B9008D4659 /* LevelListCell.swift */; };
+		5533A72824C7D5B9008D4659 /* LevelListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5533A72624C7D5B9008D4659 /* LevelListCell.xib */; };
+		5533A72A24C813CC008D4659 /* CalculationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5533A72924C813CC008D4659 /* CalculationData.swift */; };
 		5580960324BDC81300FC19C5 /* StartViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580960224BDC81300FC19C5 /* StartViewPresenter.swift */; };
 		5580960424BDC96C00FC19C5 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558095FF24BCCEE500FC19C5 /* StartViewController.swift */; };
 		5580960624BDCBDC00FC19C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5580960524BDCBDC00FC19C5 /* GoogleService-Info.plist */; };
@@ -16,13 +20,15 @@
 		5580961524C017E100FC19C5 /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5580961324C017E100FC19C5 /* ResultCell.xib */; };
 		5580961924C029EE00FC19C5 /* HistoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580961824C029EE00FC19C5 /* HistoryData.swift */; };
 		5580961B24C02D1F00FC19C5 /* ResultViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580961624C01A8100FC19C5 /* ResultViewPresenter.swift */; };
-		5580962424C2FD1E00FC19C5 /* LevelListViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580962224C2FC8A00FC19C5 /* LevelListViewPresenter.swift */; };
+		5580962424C2FD1E00FC19C5 /* SystemViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580962224C2FC8A00FC19C5 /* SystemViewPresenter.swift */; };
 		5580962724C32F6D00FC19C5 /* HomeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556B672724B8C9350027D4D5 /* HomeViewPresenter.swift */; };
 		5580962D24C377B500FC19C5 /* Pods_SmokingTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DAC68796F68F9FA50328438 /* Pods_SmokingTimer.framework */; };
 		5580963124C3801D00FC19C5 /* SystemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580963024C3801D00FC19C5 /* SystemData.swift */; };
 		5580963B24C646C300FC19C5 /* CellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580963A24C646C100FC19C5 /* CellSection.swift */; };
 		5580963D24C6482900FC19C5 /* ExpandableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5580963C24C6482900FC19C5 /* ExpandableHeaderView.swift */; };
 		5580963E24C6507B00FC19C5 /* SystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7A76F24B8454F003BE363 /* SystemViewController.swift */; };
+		558A5D2524C77D440026CA60 /* ResettingViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558A5D2424C77D440026CA60 /* ResettingViewPresenter.swift */; };
+		558A5D2924C78DD00026CA60 /* BearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558A5D2624C783E30026CA60 /* BearViewController.swift */; };
 		55B7A77224B845F3003BE363 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B7A77124B845F3003BE363 /* ResultViewController.swift */; };
 		55FA873C24B09D2E00163055 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA873B24B09D2E00163055 /* AppDelegate.swift */; };
 		55FA873E24B09D2E00163055 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA873D24B09D2E00163055 /* SceneDelegate.swift */; };
@@ -32,6 +38,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		551ABFEC24C7699700CEBF1B /* ResettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResettingViewController.swift; sourceTree = "<group>"; };
+		5533A72524C7D5B9008D4659 /* LevelListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelListCell.swift; sourceTree = "<group>"; };
+		5533A72624C7D5B9008D4659 /* LevelListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LevelListCell.xib; sourceTree = "<group>"; };
+		5533A72924C813CC008D4659 /* CalculationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationData.swift; sourceTree = "<group>"; };
 		556B672724B8C9350027D4D5 /* HomeViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewPresenter.swift; sourceTree = "<group>"; };
 		558095FF24BCCEE500FC19C5 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		5580960224BDC81300FC19C5 /* StartViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewPresenter.swift; sourceTree = "<group>"; };
@@ -41,10 +51,12 @@
 		5580961324C017E100FC19C5 /* ResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
 		5580961624C01A8100FC19C5 /* ResultViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewPresenter.swift; sourceTree = "<group>"; };
 		5580961824C029EE00FC19C5 /* HistoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryData.swift; sourceTree = "<group>"; };
-		5580962224C2FC8A00FC19C5 /* LevelListViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelListViewPresenter.swift; sourceTree = "<group>"; };
+		5580962224C2FC8A00FC19C5 /* SystemViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemViewPresenter.swift; sourceTree = "<group>"; };
 		5580963024C3801D00FC19C5 /* SystemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemData.swift; sourceTree = "<group>"; };
 		5580963A24C646C100FC19C5 /* CellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSection.swift; sourceTree = "<group>"; };
 		5580963C24C6482900FC19C5 /* ExpandableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableHeaderView.swift; sourceTree = "<group>"; };
+		558A5D2424C77D440026CA60 /* ResettingViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResettingViewPresenter.swift; sourceTree = "<group>"; };
+		558A5D2624C783E30026CA60 /* BearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearViewController.swift; sourceTree = "<group>"; };
 		55B7A76F24B8454F003BE363 /* SystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemViewController.swift; sourceTree = "<group>"; };
 		55B7A77124B845F3003BE363 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		55FA873824B09D2E00163055 /* SmokingTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmokingTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,9 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				556B672724B8C9350027D4D5 /* HomeViewPresenter.swift */,
-				5580962224C2FC8A00FC19C5 /* LevelListViewPresenter.swift */,
+				5580962224C2FC8A00FC19C5 /* SystemViewPresenter.swift */,
 				5580961624C01A8100FC19C5 /* ResultViewPresenter.swift */,
 				5580960224BDC81300FC19C5 /* StartViewPresenter.swift */,
+				558A5D2424C77D440026CA60 /* ResettingViewPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -95,14 +108,18 @@
 		55B7A76D24B844DF003BE363 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				55FA873F24B09D2E00163055 /* HomeViewController.swift */,
-				55B7A76F24B8454F003BE363 /* SystemViewController.swift */,
-				55B7A77124B845F3003BE363 /* ResultViewController.swift */,
-				55FA874124B09D2E00163055 /* Main.storyboard */,
 				558095FF24BCCEE500FC19C5 /* StartViewController.swift */,
+				55FA873F24B09D2E00163055 /* HomeViewController.swift */,
+				55B7A77124B845F3003BE363 /* ResultViewController.swift */,
+				55B7A76F24B8454F003BE363 /* SystemViewController.swift */,
+				551ABFEC24C7699700CEBF1B /* ResettingViewController.swift */,
+				558A5D2624C783E30026CA60 /* BearViewController.swift */,
+				55FA874124B09D2E00163055 /* Main.storyboard */,
 				5580961224C017E100FC19C5 /* ResultCell.swift */,
 				5580961324C017E100FC19C5 /* ResultCell.xib */,
 				5580963C24C6482900FC19C5 /* ExpandableHeaderView.swift */,
+				5533A72524C7D5B9008D4659 /* LevelListCell.swift */,
+				5533A72624C7D5B9008D4659 /* LevelListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -114,6 +131,7 @@
 				5580961824C029EE00FC19C5 /* HistoryData.swift */,
 				5580963024C3801D00FC19C5 /* SystemData.swift */,
 				5580963A24C646C100FC19C5 /* CellSection.swift */,
+				5533A72924C813CC008D4659 /* CalculationData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +240,7 @@
 			files = (
 				55FA874824B09D3400163055 /* LaunchScreen.storyboard in Resources */,
 				5580960624BDCBDC00FC19C5 /* GoogleService-Info.plist in Resources */,
+				5533A72824C7D5B9008D4659 /* LevelListCell.xib in Resources */,
 				55FA874524B09D3400163055 /* Assets.xcassets in Resources */,
 				55FA874324B09D2E00163055 /* Main.storyboard in Resources */,
 				5580961524C017E100FC19C5 /* ResultCell.xib in Resources */,
@@ -279,16 +298,21 @@
 			files = (
 				55B7A77224B845F3003BE363 /* ResultViewController.swift in Sources */,
 				5580963D24C6482900FC19C5 /* ExpandableHeaderView.swift in Sources */,
-				5580962424C2FD1E00FC19C5 /* LevelListViewPresenter.swift in Sources */,
+				5580962424C2FD1E00FC19C5 /* SystemViewPresenter.swift in Sources */,
+				551ABFED24C7699700CEBF1B /* ResettingViewController.swift in Sources */,
 				5580960424BDC96C00FC19C5 /* StartViewController.swift in Sources */,
 				5580961B24C02D1F00FC19C5 /* ResultViewPresenter.swift in Sources */,
 				55FA873C24B09D2E00163055 /* AppDelegate.swift in Sources */,
 				5580960D24BF0DF700FC19C5 /* HomeViewController.swift in Sources */,
 				5580963E24C6507B00FC19C5 /* SystemViewController.swift in Sources */,
 				55FA873E24B09D2E00163055 /* SceneDelegate.swift in Sources */,
+				5533A72724C7D5B9008D4659 /* LevelListCell.swift in Sources */,
 				5580961124C013FE00FC19C5 /* StaticData.swift in Sources */,
+				558A5D2524C77D440026CA60 /* ResettingViewPresenter.swift in Sources */,
+				558A5D2924C78DD00026CA60 /* BearViewController.swift in Sources */,
 				5580960324BDC81300FC19C5 /* StartViewPresenter.swift in Sources */,
 				5580961924C029EE00FC19C5 /* HistoryData.swift in Sources */,
+				5533A72A24C813CC008D4659 /* CalculationData.swift in Sources */,
 				5580963124C3801D00FC19C5 /* SystemData.swift in Sources */,
 				5580962724C32F6D00FC19C5 /* HomeViewPresenter.swift in Sources */,
 				5580963B24C646C300FC19C5 /* CellSection.swift in Sources */,
@@ -437,15 +461,17 @@
 			baseConfigurationReference = 82CB252AF80AF01EAC896121 /* Pods-SmokingTimer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X9TK8AD4Y9;
 				INFOPLIST_FILE = SmokingTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinn.SmokingTimer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.booboo.SmokingTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -456,14 +482,15 @@
 			baseConfigurationReference = 66E946E8574514017263D122 /* Pods-SmokingTimer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X9TK8AD4Y9;
 				INFOPLIST_FILE = SmokingTimer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jinn.SmokingTimer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.booboo.SmokingTimer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

@@ -24,7 +24,7 @@ class ResultViewController: UIViewController {
         presenter = ResultViewPresenter(view: self)
         resultList.register(UINib(nibName: "ResultCell", bundle: nil), forCellReuseIdentifier: "ResultCell")
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         presenter.getHistory()
     }
     

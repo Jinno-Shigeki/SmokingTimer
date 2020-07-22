@@ -5,8 +5,9 @@ target 'SmokingTimer' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'Firebase/Firestore'
-  pod 'ExpandableCell'
-  pod "MBCircularProgressBar"
+  pod 'Firebase/Core'
+  pod 'FirebaseFirestoreSwift'
+  pod 'MBCircularProgressBar'
   # Pods for SmokingTimer
   
 end

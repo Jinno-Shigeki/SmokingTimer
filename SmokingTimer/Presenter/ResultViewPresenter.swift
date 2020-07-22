@@ -21,7 +21,7 @@ class ResultViewPresenter {
     
     func getHistory() {
         refresh()
-        db.collection("Users").document(user!).collection("History").getDocuments { (query, err) in
+        db.collection("Users").document(user!).collection("History").order(by: "order").getDocuments { (query, err) in
             if let query = query {
                 query.documents.forEach { (doc) in
                     self.historyData.append(HistoryData(document: doc))

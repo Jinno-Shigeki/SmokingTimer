@@ -22,8 +22,10 @@ struct StaticData {
     static let alert = "タイマーを停止しますか？"
     static let stopTimer = "停止する"
     static let nextlevel = "00: 00: 00"
-    static let defaultTime = "0日 0時間 0分 00秒"
+    static let defaultTime = "0日 00: 00: 00"
     static let defaultMoney = "0.00円"
     static let defaultNumber = "0本"
     static let levels = ["Level.1", "Level.2", "Level.3", "Level.4", "Level.5", "Level.6", "Level.7"]
+    static let buttonTitle = "画像を変える"
+    static let returnKey = "完了"
 }

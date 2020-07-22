@@ -45,14 +45,15 @@ extension StartViewController: UITextFieldDelegate {
         if boxPrice.text != "" && numberOfDay.text != "" && numberOfBox.text != "" {
             okButton.isEnabled = true
             okButton.backgroundColor = UIColor(named: "customGreen")
+            okButton.setTitleColor(UIColor(named: "LightGreen"), for: .normal)
         }
     }
     
     func createReturnKey() {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 50))
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let returnKey = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tapReturnKey))
-        returnKey.tintColor = .black
+        let returnKey = UIBarButtonItem(title: StaticData.returnKey, style: .done, target: self, action: #selector(tapReturnKey))
+        returnKey.tintColor = UIColor(named: "LightGreen")
         toolBar.items = [space, returnKey]
         boxPrice.inputAccessoryView = toolBar
         numberOfDay.inputAccessoryView = toolBar

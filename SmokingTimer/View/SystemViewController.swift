@@ -14,13 +14,14 @@ protocol DetailViewProtocol {
 class SystemViewController: UIViewController {
     
     @IBOutlet weak var systemList: UITableView!
-    var presenter: LevelListViewPresenter!
+    var presenter: SystemViewPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = LevelListViewPresenter(view: self)
+        presenter = SystemViewPresenter(view: self)
         systemList.delegate = self
         systemList.dataSource = self
+        systemList.register(UINib(nibName: "LevelListCell", bundle: nil), forCellReuseIdentifier: "LevelListCell")
         layoutUI()
     }
     
@@ -34,6 +35,11 @@ class SystemViewController: UIViewController {
 //MARK: - ExpandableDelegate
 extension SystemViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let storyboard: UIStoryboard = self.storyboard!
+            let nextVC = storyboard.instantiateViewController(identifier: "ResettingVC") as! ResettingViewController
+            navigationController?.pushViewController(nextVC, animated: true)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -45,12 +51,8 @@ extension SystemViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SystemCell", for: indexPath)
-        if indexPath.section != 0 {
-            cell.textLabel?.text = presenter.section[indexPath.section - SystemData.systemMenu.count].levelContent
-            cell.textLabel?.numberOfLines = 20
-            return cell
-        } else {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SystemCell", for: indexPath)
             cell.textLabel?.text = SystemData.systemMenu[0]
             cell.textLabel?.font = UIFont.systemFont(ofSize: cell.frame.height / 2)
             let imageView = UIImageView()
@@ -58,6 +60,10 @@ extension SystemViewController: UITableViewDataSource {
             imageView.image = UIImage(systemName: "chevron.right")
             imageView.tintColor = .darkGray
             cell.addSubview(imageView)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LevelListCell", for: indexPath) as! LevelListCell
+            cell.levelContent.text = presenter.section[indexPath.section - SystemData.systemMenu.count].levelContent
             return cell
         }
     }
@@ -73,7 +79,7 @@ extension SystemViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section != 0 {
             if (presenter.section[indexPath.section - 1].expanded) {
-                return tableView.frame.height / 5
+                return tableView.frame.height / 3.5
             } else {
                 return 0
             }
@@ -83,19 +89,19 @@ extension SystemViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section != 0 {
+        if section == 0 {
+            return nil
+        } else {
             let header = ExpandableHeaderView()
             header.customInit(delegate: self, section: section, title: presenter.section[section - SystemData.systemMenu.count].level)
             return header
-        } else {
-            return nil
         }
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section != 0 {
-            return 1
-        } else {
+        if section == 0 {
             return tableView.frame.height / 16
+        } else {
+            return 1
         }
     }
 }

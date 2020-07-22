@@ -39,7 +39,17 @@ final class HomeViewController: UIViewController {
             presenter.startTimer()
             startButton.setTitle(StaticData.stop, for: UIControl.State.normal)
             startDateLebel.text = UserDefaults.standard.string(forKey: "startTime")
+        } else {
+        presenter.boxPrice = UserDefaults.standard.integer(forKey: "boxPrice")
+        presenter.numberOfBox = UserDefaults.standard.integer(forKey: "numberOfBox")
+        presenter.numberOfDay = UserDefaults.standard.integer(forKey: "numberOfDay")
         }
+    }
+    
+    @IBAction func tapBearButton(_ sender: Any) {
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextVC = storyboard.instantiateViewController(identifier: "BearVC") as! BearViewController
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @IBAction func tapStartButton(_ sender: UIButton) {
@@ -52,6 +62,7 @@ final class HomeViewController: UIViewController {
             displayAlert()
         }
     }
+    
     func displayAlert() {
         let alert = UIAlertController(title: StaticData.stop, message: StaticData.alert, preferredStyle: UIAlertController.Style.actionSheet)
         let defaultAction = UIAlertAction(title: StaticData.stopTimer, style: UIAlertAction.Style.default) { (action) in
