@@ -37,6 +37,7 @@ class ResettingViewController: UIViewController {
         numberOfBox.text = ""
         okButton.backgroundColor = .darkGray
         okButton.setTitleColor(.white, for: .normal)
+        okButton.isEnabled = false
     }
 }
 //MARK: -
@@ -46,6 +47,10 @@ extension ResettingViewController: UITextFieldDelegate {
             okButton.isEnabled = true
             okButton.backgroundColor = UIColor(named: "customGreen")
             okButton.setTitleColor(UIColor(named: "LightGreen"), for: .normal)
+        } else {
+            okButton.backgroundColor = .darkGray
+            okButton.setTitleColor(.white, for: .normal)
+            okButton.isEnabled = false
         }
     }
     func createReturnKey() {

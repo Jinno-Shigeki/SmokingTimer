@@ -15,6 +15,7 @@ class HistoryData {
     let savedMoney: String
     let savedNumber: String
     let timeRecord: String
+    let order: Double
     
     init(document: QueryDocumentSnapshot) {
         self.startDay = document.get("startDay") as! String
@@ -22,5 +23,6 @@ class HistoryData {
         self.savedMoney = document.get("savedMoney") as! String
         self.savedNumber = document.get("savedNumber") as! String
         self.timeRecord = document.get("time") as! String
+        self.order = document.get("order") as! Double
     }
 }

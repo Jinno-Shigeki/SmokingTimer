@@ -15,6 +15,7 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var resultList: UITableView!
     var presenter: ResultViewPresenter!
+    var cellCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +25,9 @@ class ResultViewController: UIViewController {
         presenter = ResultViewPresenter(view: self)
         resultList.register(UINib(nibName: "ResultCell", bundle: nil), forCellReuseIdentifier: "ResultCell")
     }
+    
     override func viewDidAppear(_ animated: Bool) {
-        presenter.getHistory()
+        presenter.getHistory(first: true)
     }
     
     func layoutUI() {
@@ -37,7 +39,11 @@ class ResultViewController: UIViewController {
 }
 //MARK: - UITableViewDelegate
 extension ResultViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == presenter.historyData.count - 1 && presenter.cellCount >= 5 {
+            presenter.getHistory(first: false)
+        }
+    }
 }
 //MARK: - UITableViewDataSource
 extension ResultViewController: UITableViewDataSource {
