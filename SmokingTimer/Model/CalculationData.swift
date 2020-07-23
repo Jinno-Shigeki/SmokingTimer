@@ -59,14 +59,14 @@ class CalculationData {
             let timeValue = Calendar.current.dateComponents([.day, .hour, .minute, .second],  from: nowDate, to: toDate!)
             return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
         } else if totalSecond >= 259200 {
-            let toDate = Calendar.current.date(byAdding: .day, value: 3, to: date)
+            let toDate = Calendar.current.date(byAdding: .day, value: 7, to: date)
             let timeValue = Calendar.current.dateComponents([.day, .hour, .minute, .second],  from: nowDate, to: toDate!)
             return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
         } else if totalSecond >= 604800 {
-            let toDate = Calendar.current.date(byAdding: .day, value: 3, to: date)
+            let toDate = Calendar.current.date(byAdding: .day, value: 14, to: date)
             let timeValue = Calendar.current.dateComponents([.day, .hour, .minute, .second],  from: nowDate, to: toDate!)
             return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
-        } else if totalSecond >= 2592000 {
+        } else if totalSecond >= 1209600 {
             return ""
         }
         return ""
@@ -80,26 +80,29 @@ class CalculationData {
             levelsProgress = parcentage * 100
             return floor(levelsProgress * 100) / 100
         } else if totalSecond >= 1200 {
-            parcentage = Double(totalSecond - levelCount[1]) / Double(levelCount[1])
+            parcentage = Double(totalSecond - levelCount[0]) / Double(levelCount[1])
             levelsProgress = parcentage * 100
             return floor(levelsProgress * 100) / 100
         } else if totalSecond >= 28800 {
-            parcentage = Double(totalSecond - levelCount[2]) / Double(levelCount[2])
+            parcentage = Double(totalSecond - levelCount[1]) / Double(levelCount[2])
             levelsProgress = parcentage * 100
             return floor(levelsProgress * 100) / 100
         } else if totalSecond >= 86400 {
-            parcentage = Double(totalSecond - levelCount[3]) / Double(levelCount[3])
+            parcentage = Double(totalSecond - levelCount[2]) / Double(levelCount[3])
             levelsProgress = parcentage * 100
             return floor(levelsProgress * 100) / 100
         } else if totalSecond >= 172800 {
-            parcentage = Double(totalSecond - levelCount[4]) / Double(levelCount[4])
+            parcentage = Double(totalSecond - levelCount[3]) / Double(levelCount[4])
             levelsProgress = parcentage * 100
             return floor(levelsProgress * 100) / 100
         } else if totalSecond >= 259200 {
-            parcentage = Double(totalSecond - levelCount[5]) / Double(levelCount[5])
+            parcentage = Double(totalSecond - levelCount[4]) / Double(levelCount[5])
             levelsProgress = parcentage * 100
             return floor(levelsProgress * 100) / 100
         } else if totalSecond >= 604800 {
+            parcentage = Double(totalSecond - levelCount[5]) / Double(levelCount[6])
+            levelsProgress = parcentage * 100
+        } else if totalSecond >= 1209600 {
             return 100
         }
         return 0

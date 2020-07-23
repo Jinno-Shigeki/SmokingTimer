@@ -23,7 +23,7 @@ class HomeViewPresenter {
     private var finishDay = ""
     private var totalSecond = 0
     private var levelsProgress: Double = 0
-    private let levelCount = [1200, 27600, 57600, 87600, 345600]
+    private let levelCount = [1200, 27600, 57600, 864000, 864000, 345600, 1209600]
     init(view: HomeViewProtocol) {
         self.view = view
         self.calculationData = CalculationData(levelCount: levelCount)
@@ -97,35 +97,5 @@ class HomeViewPresenter {
         UserDefaults.standard.set(date, forKey: "Date")
         UserDefaults.standard.set(startTime, forKey: "startTime")
     }
-    func calculateLevelProgress() -> Double {
-        var parcentage: Double = 0
-        if totalSecond < 1200 {
-            parcentage = Double(totalSecond) / Double(levelCount[0])
-            levelsProgress = parcentage * 100
-            return floor(levelsProgress * 100) / 100
-        } else if totalSecond >= 1200 {
-            parcentage = Double(totalSecond - levelCount[1]) / Double(levelCount[1])
-            levelsProgress = parcentage * 100
-            return floor(levelsProgress * 100) / 100
-        } else if totalSecond >= 28800 {
-            parcentage = Double(totalSecond - levelCount[2]) / Double(levelCount[2])
-            levelsProgress = parcentage * 100
-            return floor(levelsProgress * 100) / 100
-        } else if totalSecond >= 86400 {
-            parcentage = Double(totalSecond - levelCount[3]) / Double(levelCount[3])
-            levelsProgress = parcentage * 100
-            return floor(levelsProgress * 100) / 100
-        } else if totalSecond >= 172800 {
-            parcentage = Double(totalSecond - levelCount[4]) / Double(levelCount[4])
-            levelsProgress = parcentage * 100
-            return floor(levelsProgress * 100) / 100
-        } else if totalSecond >= 259200 {
-            parcentage = Double(totalSecond - levelCount[5]) / Double(levelCount[5])
-            levelsProgress = parcentage * 100
-            return floor(levelsProgress * 100) / 100
-        } else if totalSecond >= 604800 {
-            return 100
-        }
-        return 0
-    }
+
 }
