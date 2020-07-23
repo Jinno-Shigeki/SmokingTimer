@@ -48,7 +48,7 @@ class CalculationData {
             return String(format: "%.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
         } else if totalSecond >= 28800 {
             let toDate = Calendar.current.date(byAdding: .hour, value: 24, to: date)
-            let timeValue = Calendar.current.dateComponents([.hour, .minute, .second],  from: date, to: toDate!)
+            let timeValue = Calendar.current.dateComponents([.hour, .minute, .second],  from: nowDate, to: toDate!)
             return String(format: "%.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
         } else if totalSecond >= 86400 {
             let toDate = Calendar.current.date(byAdding: .day, value: 2, to: date)
