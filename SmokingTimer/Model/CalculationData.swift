@@ -53,19 +53,19 @@ class CalculationData {
         } else if totalSecond >= 86400 && totalSecond < 172800 {
             let toDate = Calendar.current.date(byAdding: .day, value: 2, to: date)
             let timeValue = Calendar.current.dateComponents([.day, .hour, .minute, .second],  from: nowDate, to: toDate!)
-            return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
+            return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.day!, timeValue.hour!, timeValue.minute! ,timeValue.second!)
         } else if totalSecond >= 172800 && totalSecond < 259200 {
             let toDate = Calendar.current.date(byAdding: .day, value: 3, to: date)
             let timeValue = Calendar.current.dateComponents([.day, .hour, .minute, .second],  from: nowDate, to: toDate!)
-            return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
+            return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.day!, timeValue.hour!, timeValue.minute! ,timeValue.second!)
         } else if totalSecond >= 259200 && totalSecond < 604800 {
             let toDate = Calendar.current.date(byAdding: .day, value: 7, to: date)
             let timeValue = Calendar.current.dateComponents([.day, .hour, .minute, .second],  from: nowDate, to: toDate!)
-            return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
+            return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.day!, timeValue.hour!, timeValue.minute! ,timeValue.second!)
         } else if totalSecond >= 604800 && totalSecond < 1209600 {
             let toDate = Calendar.current.date(byAdding: .day, value: 14, to: date)
             let timeValue = Calendar.current.dateComponents([.day, .hour, .minute, .second],  from: nowDate, to: toDate!)
-            return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.hour!, timeValue.minute! ,timeValue.second!)
+            return String(format: "%.2d\(StaticData.date) %.2d: %.2d: %.2d", timeValue.day!, timeValue.hour!, timeValue.minute! ,timeValue.second!)
         } else if totalSecond >= 1209600 {
             return ""
         }
